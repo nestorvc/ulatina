@@ -35,7 +35,7 @@ function startCodemirror() {
 				theme: "monokai",
 				lineNumbers: true
 			});
-		myCodeMirror.setSize("100%", 100);		
+		myCodeMirror.setSize("100%", 115);		
 		myCodeMirrors[el.id] = myCodeMirror;
 
 		if(DEBUG) console.log("EQUAL...", el.id); //DEBUG
@@ -61,6 +61,7 @@ function compilar(e) {
 		$('#alert-error').hide();
 		$('#alert-success').fadeIn();
   		$('#alert-success span').text("Código ejecutado sin problemas");
+		setTimeout(closeAlertSuccess, 2500);
 	} catch(err) {
   		if(DEBUG) console.log("NO COMPILÓ! " + err); //DEBUG
   		$('#alert-success').hide();
