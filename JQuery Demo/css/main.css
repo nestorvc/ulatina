@@ -1,0 +1,56 @@
+/* ===================
+   GENÉRICOS
+   =================== */
+
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+/* ===================
+   CUSTOM
+   =================== */
+
+.niceDemo:after {
+    background-color: #FAA732;
+    border: 1px solid #F89406;
+    border-radius: 4px 0 4px 0;
+    color: #FFFFFF;
+    content: "demoDiv";
+    font-size: 12px;
+    font-weight: bold;
+    left: -1px;
+    padding: 3px 7px;
+    position: absolute;
+    top: -1px;
+}
+
+.niceDemo {
+	background-color: #FFFFFF;
+  border: 1px solid #F89406;
+  border-radius: 4px 4px 4px 4px;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  position: relative;
+	transition: all 2s;
+}
+
+.demoClass {
+	border-radius: 4px;
+	border: 1px dashed black;
+  border-color: black;
+	padding: 10px;
+	margin: 20px 0;
+  cursor: pointer;
+}
+
+.demoClass2 {
+  background-color: #FAA732;
+}
+
+/* ===================
+   HELPERS
+   =================== */
+
+.fixed { position: fixed; }
+

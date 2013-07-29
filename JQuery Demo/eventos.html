@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prettify.css">
+        <link rel="stylesheet" href="css/codemirror.css">
+        <link rel="stylesheet" href="css/monokai.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">jQuery Demo</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                           <li><a href="selectors.html">Selectors</a></li>
+                            <li><a href="eventos.html">Eventos</a></li>
+                            <li><a href="efectos.html">Efectos</a></li> 
+                            <li><a href="ajax.html">AJAX</a></li> 
+                            <li><a href="widgets.html">Widgets</a></li>                
+                        </ul>                        
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+            <div id="alert-error" class='alert alert-error'> 
+                <button type="button" class="close">&times;</button>
+                <strong>¡A la pucha!</strong> <span></span>
+            </div>
+            <div id="alert-success" class='alert alert-success'> 
+                <button type="button" class="close">&times;</button>
+                <strong>¡Choque esos 5!</strong> <span></span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <ul class="nav nav-tabs nav-stacked fixed">
+                        <li><a href="#eventos">Eventos</a></li>
+                        <li><a href="#click">Click</a></li>
+                        <li><a href="#otros">Otros eventos</a></li>
+                        <li><a href="#bind">Bind</a></li>
+                    </ul>
+                </div>
+                <div class="span9">
+                    <section id="eventos">
+                        <div class="page-header">
+                            <h1>Eventos</h1>
+                        </div>
+                        <div>
+                            <p>JQuery facilita el uso de eventos, sin importar el navegador que se esté utilizando. Anteriormente, había que redactar código que tomara las debidas precauciones según el potencial navegador donde el usuario estuviera utilizando la aplicación, por lo que el manejo de un simple evento se convertía en toda una odisea de líneas de código.</p>
+                            <p>JQuery nos permite simplificar esto a una simple línea. Por ejemplo:</p>
+                            <pre class="prettyprint linenums">
+if(elemento.addEventListener) { //Mozilla 
+    elemento.addEventListener('click', hacerAlgo, false);
+} else if (elemento.attachEvent) { 
+    elemento.attachEvent('onclick', hacerAlgo); //IE
+}                       </pre>
+                            <p>En jQuery se convierte en esto:</p>
+                            <pre class="prettyprint linenums">
+$('elemento').click(hacerAlgo);                      </pre>
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion eventos -->
+
+                    <section id="click">
+                        <div class="page-header">
+                            <h1>Click</h1>
+                        </div>
+                        <div>
+                            <p>Como se muestra en el ejemplo anterior, darle comportamiento de click a un elemento es tan fácil como usar la función <code>.click()</code>. El parámetro que recibe en este caso, es la función que se ejecutaría cuando este elemento recibe el clic.</p>
+                            <pre class="prettyprint linenums">
+$('demoDiv1 #demoButton').click(
+    function(){
+        //Código que quiero que se ejecute con el clic
+        $('#demoDiv1 div').hide();
+    }
+);                       </pre>
+                        <p>Lo bueno de la función <code>.click()</code> es que se le puede agregar comportamiento de clic a cualquier elemento, no solamente los botones. Por ejemplo, hagamos que cuando se da clic sobre el último, éste se desaparezca.</p> <div>
+                        <pre class="prettyprint linenums">
+$('#demoDiv1 div:last').click(
+    function(){
+        //Código que quiero que se ejecute con el clic
+        $(this).hide();
+    }
+);                       </pre>
+                        </div>
+                        <div>
+                            <p><em>Copie y pegue</em> el código para probar el cambio que sucede sobre el <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <legend>Editor de código:</legend>
+                            <textarea id="editorDemoDiv1" class="myEditor"></textarea><br>
+                            <button id="btnDemoDiv1" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>              
+                            
+                            <div id="demoDiv1" class="niceDemo" >
+                                <button id="demoButton" class="btn">demoButton</button><hr>
+                                <div class="demoClass"> Este <code>&lt;div&gt;</code> se esconderá con cada el clic del botón.</div>
+                                <div class="demoClass"> Este es el útlimo <code>&lt;div&gt;</code>.</div>
+                            </div>
+                        </div>
+                        
+                    </section> <!-- /seccion click -->
+
+                    <section id="otros">
+                        <div class="page-header">
+                            <h1>Otros eventos</h1>
+                        </div>
+                        <div>
+                            <p>JQuery interpreta además una alta cantidad de eventos de uso común, los cuales se pueden encontrar en su totalidad <a href="http://api.jquery.com/category/events/" target="blank">en la documentación oficial</a> de la librería. Acá veremos algunos bastante interesantes.</p>
+                            <ul>
+                                <li><code>.focus()</code> Cuando se activa un elemento</li>
+                                <li><code>.keypress()</code> Cuando se presiona cualquier tecla</li>
+                                <li><code>.mouseenter()</code> Cuando el puntero del mouse entra al área de un elemento</li>
+                                <li><code>.change()</code> Cuando, de cualquier forma, cambia el estado de un elemento</li>
+                            </ul>
+                            <p>Por ejemplo, con <code>.focus()</code> podemos hacer que cuando alguien se posicione en el <code>&lt;input&gt;</code> llamado <strong>demoInput</strong>, aparezca un botón.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv2 #demoInput').focus(
+  function(){
+    $('#demoDiv2 #demoButton').fadeIn();
+  }
+);</pre>
+                            <p>También podríamos utilizar <code>.keypress()</code> y lograr hacer que cada vez que alguien toca el teclado, se crea un nuevo <code>&lt;div&gt;</code>.</p>
+                            <pre class="prettyprint linenums">
+$(document).keypress(
+  function(){
+    $('#demoDiv2').append(
+        "&lt;div class='demoClass' &gt;Lorem ipsum&lt;/div&gt;"
+    );
+  }
+);</pre>
+
+                            <p>Ahora podemos lograr con  <code>.mouseenter()</code> que cada vez que el mouse entre al área de estos nuevos<code>&lt;div&gt;</code>, los mismos se remuevan.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv2 .demoClass').mouseenter(
+  function(){
+    $(this).remove();
+  }
+);</pre>
+
+                            <p>Finalmente podríamos intentar con <code>.change()</code> lograr que cada vez que el <code>&lt;input&gt;</code> <strong>demoInput</strong> cambie de estado, ya sea que se le escribe algo, o cambia su estilo, los <code>&lt;div&gt;</code> <strong>demoClass</strong> cambian de color.</p>
+                            <pre class="prettyprint linenums">
+$('#demoInput').change(
+  function(){
+    $('#demoDiv2 .demoClass').css({"background-color":"#FAA732","border-color":"#F89406"});
+  }
+);</pre>
+
+                            <p><em>Copie y pegue</em> el código para probar el cambio que sucede sobre el <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <legend>Editor de código:</legend>
+                            <textarea id="editorDemoDiv2" class="myEditor"></textarea><br>
+                            <button id="btnDemoDiv2" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>
+
+                            <div id="demoDiv2" class="niceDemo" >
+                                <form class="form-search">
+                                  <input id="demoInput" type="text" class="input-xxlarge search-query" placeholder="demoInput">
+                                  <button id="demoButton" type="submit" class="btn init-hide">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion otros -->
+
+                    <section id="bind">
+                        <div class="page-header">
+                            <h1>Bind</h1>
+                        </div>
+                        <div>
+                            <p>La función <code>.bind()</code> permite manejar eventos de una manera más compleja y compuesta, ligando varios eventos a un sólo elemento.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv3 #demoInput').bind('focus blur', function() {
+    $('#demoDiv3 #demoButton').toggleClass("hide");
+});</pre>
+                            <p><em>Copie y pegue</em> el código para probar el cambio que sucede sobre el <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <legend>Editor de código:</legend>
+                            <textarea id="editorDemoDiv3" class="myEditor"></textarea><br>
+                            <button id="btnDemoDiv3" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>
+
+                            <div id="demoDiv3" class="niceDemo" >
+                                <form class="form-search">
+                                  <input id="demoInput" type="text" class="input-xxlarge search-query" placeholder="demoInput">
+                                  <button id="demoButton" type="submit" class="btn hide">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion bind -->
+                </div>    
+            </div>        
+
+            
+
+
+        </div> <!-- /container -->
+
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>        
+        <script src="js/vendor/bootstrap.min.js"></script>    
+        <script src="js/vendor/codemirror.js"></script>
+        <script src="js/vendor/javascript/javascript.js"></script>
+        <script type="text/javascript" src="js/vendor/prettify.js"></script>     
+        <script src="js/main.js"></script>        
+        <script>
+		  !function ($) {
+		    $(function(){
+		      window.prettyPrint && prettyPrint()   
+		    })
+		  }(window.jQuery)
+		</script>
+    </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prettify.css">
+        <link rel="stylesheet" href="css/codemirror.css">
+        <link rel="stylesheet" href="css/monokai.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <!-- UTILS -->
+        <script>
+          $(function() {
+            var arrayLenguajes = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+            ];
+            $('#demoDiv2 input').typeahead({
+              source: arrayLenguajes
+            });
+          });
+        </script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">jQuery Demo</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                           <li><a href="selectors.html">Selectors</a></li>
+                            <li><a href="eventos.html">Eventos</a></li>
+                            <li><a href="efectos.html">Efectos</a></li> 
+                            <li><a href="ajax.html">AJAX</a></li> 
+                            <li><a href="widgets.html">Widgets</a></li>                
+                        </ul>                        
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+            <div id="alert-error" class='alert alert-error'> 
+                <button type="button" class="close">&times;</button>
+                <strong>¡A la pucha!</strong> <span></span>
+            </div>
+            <div id="alert-success" class='alert alert-success'> 
+                <button type="button" class="close">&times;</button>
+                <strong>¡Choque esos 5!</strong> <span></span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <ul class="nav nav-tabs nav-stacked fixed">
+                        <li><a href="#widgets">Widgets</a></li>
+                        <li><a href="#acordion">Acordion</a></li>
+                        <li><a href="#autocomplete">Autocomplete</a></li>
+                        <li><a href="#datepicker">Datepicker</a></li>
+                        <li><a href="#progressbar">Progressbar</a></li>
+                    </ul>
+                </div>
+                <div class="span9">
+                    <section id="eventos">
+                        <div class="page-header">
+                            <h1>Eventos</h1>
+                        </div>
+                        <div>
+                            <p>Los widgets son componentes previamente hechos en jQuery para facilitar ciertas acciones y experiencias de usuario de uso común. Se pueden entender como trózos de código que nosotros nada más reutilizaremos. Algunos de los más utilizados son:</p>
+                            <ul>
+                                <li><strong>Acordión</strong></li>
+                                <li><strong>Autocomplete</strong></li>
+                                <li><strong>Botones</strong></li>
+                                <li><strong>Slider</strong></li>
+                                <li><strong>Datepicker</strong></li>
+                                <li><strong>Tabs</strong></li>
+                                <li><strong>Progressbar</strong></li>
+                            </ul>
+                            <p>En este demo veremos 4 de estos.</p>
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion widgets -->
+
+                    <section id="acordion">
+                        <div class="page-header">
+                            <h1>Acordión</h1>
+                        </div>
+                        <div>                            
+                            <p>El acordión permite desplegar información en menús desplegables. La gran utilidad del acordión es que permite ahorrar espacio y mantener el diseño del app limpio y fácil de utilizar, mostrando sólo lo que se ocupa. El siguiente es un ejemplo de cómo se implementa un acordión, y su respectivo resultado desplegado en el <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <p>Supongamos que nuestro HTML que queremos convertir en un acordión tiene la siguiente estructura:</p>
+                            <pre class="prettyprint linenums">
+&lt;div class="accordion" id="demoAcordion"&gt;
+  &lt;div class="accordion-group"&gt;
+    &lt;div class="accordion-heading"&gt;
+      &lt;a class="accordion-toggle" data-toggle="collapse" data-parent="#demoAcordion" href="#collapse1"&gt;
+        Menú Acordión #1
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapse1" class="accordion-body collapse in"&gt;
+      &lt;div class="accordion-inner"&gt;
+        Texto expandido del acordión #1
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion-group"&gt;
+    &lt;div class="accordion-heading"&gt;
+      &lt;a class="accordion-toggle" data-toggle="collapse" data-parent="#demoAcordion" href="#collapse2"&gt;
+        Menú Acordión #2
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="collapse2" class="accordion-body collapse"&gt;
+      &lt;div class="accordion-inner"&gt;
+        Texto expandido del acordión #2
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                            <p>Para convertir esto en un contenido de tipo acordión, sólo tenemos que ejecutar ésta línea:</p>
+                            <pre class="prettyprint linenums">
+$( "#accordion" ).accordion();</pre>
+                            <p>En el caso en que se estuviera utilizando Bootstrap, el uso es igual de sencillo:</p>
+                            <pre class="prettyprint linenums">
+$(".collapse").collapse();</pre>
+                            <div id="demoDiv1" class="niceDemo" >
+                                <div class="accordion" id="demoAcordion">
+                                  <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#demoAcordion" href="#collapse1">
+                                        Menú Acordión #1
+                                      </a>
+                                    </div>
+                                    <div id="collapse1" class="accordion-body collapse in">
+                                      <div class="accordion-inner">
+                                        Texto expandido del acordión #1
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#demoAcordion" href="#collapse2">
+                                        Menú Acordión #2
+                                      </a>
+                                    </div>
+                                    <div id="collapse2" class="accordion-body collapse">
+                                      <div class="accordion-inner">
+                                        Texto expandido del acordión #2
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion accordion -->
+
+                    <section id="autocomplete">
+                        <div class="page-header">
+                            <h1>Autocomplete</h1>
+                        </div>
+                        <div>                            
+                            <p>:</p>
+                            <pre class="prettyprint linenums">
+var arrayLenguajes = [
+  "ActionScript",
+  "AppleScript",
+  "Asp",
+  "BASIC",
+  "C",
+  "C++",
+  "Clojure",
+  "COBOL",
+  "ColdFusion",
+  "Erlang",
+  "Fortran",
+  "Groovy",
+  "Haskell",
+  "Java",
+  "JavaScript",
+  "Lisp",
+  "Perl",
+  "PHP",
+  "Python",
+  "Ruby",
+  "Scala",
+  "Scheme"
+];</pre>
+                            <p>Para lograr que el espacio pueda autocompletar los datos a partir del <code>array</code> llamado <strong>arrayLenguajes</strong> hacemos lo siguiente:</p>
+                            <pre class="prettyprint linenums">
+$( "#demoDiv2 input" ).autocomplete({
+    source: arrayLenguajes
+});</pre>
+                            <p>En el caso en que se estuviera utilizando Bootstrap, el uso es igual de sencillo:</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv2 input').typeahead({
+    source: arrayLenguajes
+});</pre>
+                            <div id="demoDiv2" class="niceDemo" >
+                                <input class="typeahead" type="text" data-provide="typeahead">
+                            </div>
+
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion accordion -->
+
+                </div>    
+            </div>            
+
+
+        </div> <!-- /container -->
+
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>        
+        <script src="js/vendor/bootstrap.min.js"></script>    
+        <script src="js/vendor/codemirror.js"></script>
+        <script src="js/vendor/javascript/javascript.js"></script>
+        <script type="text/javascript" src="js/vendor/prettify.js"></script>     
+        <script src="js/main.js"></script>        
+        <script>
+		  !function ($) {
+		    $(function(){
+		      window.prettyPrint && prettyPrint()   
+		    })
+		  }(window.jQuery)
+		</script>
+    </body>
+</html>

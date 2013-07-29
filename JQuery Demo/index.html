@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prettify.css">
+        <link rel="stylesheet" href="css/codemirror.css">
+        <link rel="stylesheet" href="css/monokai.css">
+
+        </script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">jQuery Demo</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                           <li><a href="selectors.html">Selectors</a></li>
+                            <li><a href="eventos.html">Eventos</a></li>
+                            <li><a href="efectos.html">Efectos</a></li> 
+                            <li><a href="ajax.html">AJAX</a></li> 
+                            <li><a href="widgets.html">Widgets</a></li>                 
+                        </ul>                        
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!-- Hero -->
+            <div class="hero-unit">
+                <h1>Bienvenidos</h1>
+                <br><p>Este es un demo de jQuery creado por <a href="#" target="blank">Néstor Villalobos</a> y <a href="#" target="blank">Ana Victoria Granera</a> para el curso de <strong>Desarrollo de Componentes</strong> de la Universidad Latina de Costa Rica. Es necesario que instale jQuery con los pasosacá mencionados. Si ya lo tiene instalado, puede continuar.</p>
+                <p><a href="selectors.html" class="btn btn-primary btn-large">Continuar &raquo;</a></p>
+            </div>
+
+            <!-- Rows -->
+            <div class="row">
+
+                <div class="span4">
+                    <h2>1. Bajarlo</h2>
+                    <p>Primero se necesita bajar la <a href="http://www.jquery.com" target="blank">librería jQuery del sitio oficial</a>. Para fines de este ejemplo, se proporcionará la librería jQuery que se utilizó en las diferentes demostraciones </p>
+                    <p><a class="btn" href="files/jquery-1.10.1.min.js.zip">Descargar &raquo;</a></p>
+                </div>
+                <div class="span4">
+                    <h2>2. Incluirlo</h2>
+                    <p>Una vez descargado y descomprimido el archivo, incluya el .js que viene en alguna carpeta de su proyecto. Preferiblemente en alguna llamada <em><strong>/js</strong></em> o <em><strong>/scripts</strong></em> </p>
+               </div>
+                <div class="span4">
+                    <h2>3. Referenciarlo</h2>
+                    <p>Ahora simplemente debe incluir la referencia a este archivo desde el <code>&lt;head&gt;</code> de sus archivos HTML de la siguiente forma:</p>
+                    <pre class="prettyprint linenums">
+&lt;head&gt;
+    ... 
+    &lt;script src="/dir/jquery.js"&gt; 
+    &lt;/script&gt; 
+&lt;/head&gt;                        </pre>
+                </div>
+            </div>
+
+        </div> <!-- /container -->
+
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>        
+        <script src="js/vendor/bootstrap.min.js"></script>    
+        <script src="js/vendor/codemirror.min.js"></script>
+        <script src="js/vendor/javascript/javascript.js"></script>
+        <script type="text/javascript" src="js/vendor/prettify.js"></script>     
+        <script src="js/main.js"></script>        
+        <script>
+          !function ($) {
+            $(function(){
+              window.prettyPrint && prettyPrint()   
+            })
+          }(window.jQuery)
+        </script>
+    </body>
+</html>

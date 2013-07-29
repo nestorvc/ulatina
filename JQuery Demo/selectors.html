@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prettify.css">
+        <link rel="stylesheet" href="css/codemirror.css">
+        <link rel="stylesheet" href="css/monokai.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">jQuery Demo</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                           <li><a href="selectors.html">Selectors</a></li>
+                            <li><a href="eventos.html">Eventos</a></li>
+                            <li><a href="efectos.html">Efectos</a></li> 
+                            <li><a href="ajax.html">AJAX</a></li> 
+                            <li><a href="widgets.html">Widgets</a></li>                
+                        </ul>                        
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+            <div id="alert-error" class='alert alert-error'> 
+                <button type="button" class="close">&times;</button>
+                <strong>¡A la pucha!</strong> <span></span>
+            </div>
+            <div id="alert-success" class='alert alert-success'> 
+                <button type="button" class="close">&times;</button>
+                <strong>¡Choque esos 5!</strong> <span></span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <ul class="nav nav-tabs nav-stacked fixed">
+                        <li><a href="#selectors">Selectors</a></li>
+                        <li><a href="#atributos">Manipulación del DOM</a></li>
+                        <li><a href="#annadir">Añadir HTML</a></li>
+                        <li><a href="#css">Cambiar el CSS</a></li>
+                    </ul>
+                </div>
+                <div class="span9">
+                    <section id="selectors">
+                        <div class="page-header">
+                            <h1>Selectors</h1>
+                        </div>
+                        <div>
+                            <p>JQuery permite seleccionar cada elemento del DOM con los <em>selectors</em> los cuales distinguen entre elementos según <em>id, clase, tipo de elemento y otros.</em></p>
+                            <ul>
+                                <li><strong>Por id:</strong> <code>$('#id')</code></li>
+                                <li><strong>Por clase:</strong> <code>$('.clase')</code></li>
+                                <li><strong>Por elemento:</strong> <code>$('elemento')</code></li>                                
+                                <li><strong>Todos:</strong> <code>$('*')</code></li>
+                                <li><strong>Mixtos:</strong> <code>$('#id, .clase, elemento')</code></li>
+                                <li><strong>Complejos:</strong> <code>$('elemento:first')</code></li>
+                                <li><strong>El elemento actual:</strong> <code>$(this)</code></li>
+                            </ul>
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion selectors -->
+
+                    <section id="atributos">
+                        <div class="page-header">
+                            <h1>Manipulación del DOM</h1>
+                        </div>
+                        <div>
+                        	<p>JQuery permite seleccionar los diferentes elementos del DOM con los <a href="#selectors">selectors</a>. Una vez con el elemento deseado seleccionado, se le puede dar funcionalidad extra según lo que necesitemos. El siguiente ejemplo selecciona elementos del <em><strong>demoDiv</strong></em> según lo establecido en el código de ejemplo.</p>
+                            <pre class="prettyprint linenums">
+$('#demoButton').hide();
+$('.demoClass').hide(); 
+$('p').hide(); 
+$('#demoDiv1 tr:odd').hide();
+$('#demoDiv1').hide();                        </pre>
+                        </div>
+                        <div>
+                            <p>A conitnuación <em>copie y pegue</em> una por una las líneas de código en el editor de texto, y pruebe que sucede con los diferentes elementos del <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <legend>Editor de código:</legend>
+                            <textarea id="editorDemoDiv1" class="myEditor"></textarea><br>
+                            <button id="btnDemoDiv1" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>
+                            
+                            <div id="demoDiv1" class="niceDemo" >
+                                <p> Esto es un <code>&lt;p&gt;</code></p>
+                                <div class="demoClass">
+                                    Esto es un <code>&lt;div&gt;</code> de clase <em><strong>demoClass</strong></em><br><br>
+                                    <button class="btn" id="demoButton"> Esto es un <code>&lt;button&gt;</code><br>con id <em><strong>demoButton</strong></button></em>
+                                </div>
+                                <div class="demoClass">
+                                    Esto es otro <code>&lt;div&gt;</code> de clase <em><strong>demoClass</strong></em>
+                                </div>
+                                Esto es un <code>&lt;table&gt;</code>:
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>Tipo</th>                                       
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>Impar</td>
+                                      </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>Par</td>
+                                      </tr>
+                                      <tr>
+                                        <td>3</td>
+                                        <td>Impar</td>
+                                      </tr>
+                                      <tr>
+                                        <td>4</td>
+                                        <td>Par</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </section> <!-- /seccion atributos -->
+
+                    <section id="annadir">
+                        <div class="page-header">
+                            <h1>Añadir HTML</h1>
+                        </div>
+                        <div>
+                        	<p>También es posible introducir nuevos elementos al DOM mediante HTML. Esto se logra utilizando la función de JQuery <code>.append()</code>, a la cual se le ingresa como parámetro un <em>string</em> con el el elemento que se quiere ingresar.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv2').append(
+    "&lt;div class='demoClass' &gt;Lorem ipsum&lt;/div&gt;"
+);                       </pre>
+                            <p>Incluso puede agregar nuevos elementos, sobre el nuevo <code>div</code> que acaba de crearse.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv2 .demoClass').append(
+    "&lt;br&gt;    &lt;button class='btn btn-info' &gt;Botón&lt;/button&gt;"
+);                       </pre>
+                        </div>
+                        <div>
+                        	<p><em>Copie y pegue</em> el código para probar el cambio que sucede sobre el <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <legend>Editor de código:</legend>
+						    <textarea id="editorDemoDiv2" class="myEditor"></textarea><br>
+						    <button id="btnDemoDiv2" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>                            
+                        	
+                        	<div id="demoDiv2" class="niceDemo" ></div>
+                        </div>
+                        
+                    </section> <!-- /seccion annadir -->
+
+                    <section id="css">
+                        <div class="page-header">
+                            <h1>Cambiar el CSS</h1>
+                        </div>
+                        <div>
+                            <p>Otra gran ventaja de JQuery, es que una vez que tenemos seleccionado un elemento, es posible cambiarle dinamicamente el CSS mediante la funciín <code>.css()</code>, donde por parámetros le ingresamos propiedades CSS, utilizando exactamente la misma sintáxis que utilizaríamos redactando las hojas de estilo.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv3').css({"height":"75px"});                       </pre>
+                            <p>Acá otros ejemplos compuestos para probar como cambia el estilo del <code>div</code>.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv3').css({"height":"25px", "width": "50%", "background-color":"#FAA732","border-color":"#F89406"});</pre>
+                            <p>Incluso se pueden agregar clases enteras de CSS con el comando <code>.addClass()</code>.</p>
+                            <pre class="prettyprint linenums">
+$('#demoDiv3').addClass("demoClass");                       </pre>
+                        </div>
+                        <div>
+                            <p><em>Copie y pegue</em> el código para probar el cambio que sucede sobre el <code>&lt;div&gt;</code> llamado <strong>demoDiv</strong>.</p>
+                            <legend>Editor de código:</legend>
+                            <textarea id="editorDemoDiv3" class="myEditor"></textarea><br>
+                            <button id="btnDemoDiv3" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>
+                            
+                            <div id="demoDiv3" class="niceDemo" ></div>
+                        </div>
+                        
+                    </section> <!-- /seccion css -->
+                </div>    
+            </div>        
+
+            
+
+
+        </div> <!-- /container -->
+
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>        
+        <script src="js/vendor/bootstrap.min.js"></script>    
+        <script src="js/vendor/codemirror.js"></script>
+        <script src="js/vendor/javascript/javascript.js"></script>
+        <script type="text/javascript" src="js/vendor/prettify.js"></script>     
+        <script src="js/main.js"></script>        
+        <script>
+		  !function ($) {
+		    $(function(){
+		      window.prettyPrint && prettyPrint()   
+		    })
+		  }(window.jQuery)
+		</script>
+    </body>
+</html>
