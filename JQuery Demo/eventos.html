@@ -27,7 +27,6 @@
                            <li><a href="selectors.html">Selectors</a></li>
                             <li><a href="eventos.html">Eventos</a></li>
                             <li><a href="efectos.html">Efectos</a></li> 
-                            <li><a href="ajax.html">AJAX</a></li> 
                             <li><a href="widgets.html">Widgets</a></li>                
                         </ul>                        
                     </div><!--/.nav-collapse -->
@@ -151,7 +150,7 @@ $('#demoDiv2 .demoClass').mouseenter(
 
                             <p>Finalmente podríamos intentar con <code>.change()</code> lograr que cada vez que el <code>&lt;input&gt;</code> <strong>demoInput</strong> cambie de estado, ya sea que se le escribe algo, o cambia su estilo, los <code>&lt;div&gt;</code> <strong>demoClass</strong> cambian de color.</p>
                             <pre class="prettyprint linenums">
-$('#demoInput').change(
+$('#demoDiv2 #demoInput').change(
   function(){
     $('#demoDiv2 .demoClass').css({"background-color":"#FAA732","border-color":"#F89406"});
   }

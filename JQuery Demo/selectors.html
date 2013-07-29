@@ -26,8 +26,7 @@
                         <ul class="nav">
                            <li><a href="selectors.html">Selectors</a></li>
                             <li><a href="eventos.html">Eventos</a></li>
-                            <li><a href="efectos.html">Efectos</a></li> 
-                            <li><a href="ajax.html">AJAX</a></li> 
+                            <li><a href="efectos.html">Efectos</a></li>  
                             <li><a href="widgets.html">Widgets</a></li>                
                         </ul>                        
                     </div><!--/.nav-collapse -->
@@ -80,9 +79,9 @@
                         <div>
                         	<p>JQuery permite seleccionar los diferentes elementos del DOM con los <a href="#selectors">selectors</a>. Una vez con el elemento deseado seleccionado, se le puede dar funcionalidad extra según lo que necesitemos. El siguiente ejemplo selecciona elementos del <em><strong>demoDiv</strong></em> según lo establecido en el código de ejemplo.</p>
                             <pre class="prettyprint linenums">
-$('#demoButton').hide();
-$('.demoClass').hide(); 
-$('p').hide(); 
+$('#demoDiv1 #demoButton').hide();
+$('#demoDiv1 .demoClass').hide(); 
+$('#demoDiv1 p').hide(); 
 $('#demoDiv1 tr:odd').hide();
 $('#demoDiv1').hide();                        </pre>
                         </div>
@@ -172,7 +171,7 @@ $('#demoDiv2 .demoClass').append(
 $('#demoDiv3').css({"height":"75px"});                       </pre>
                             <p>Acá otros ejemplos compuestos para probar como cambia el estilo del <code>div</code>.</p>
                             <pre class="prettyprint linenums">
-$('#demoDiv3').css({"height":"25px", "width": "50%", "background-color":"#FAA732","border-color":"#F89406"});</pre>
+$('#demoDiv3').css({"height":"25px", "width": "50%", "background-color":"#FAA732"});</pre>
                             <p>Incluso se pueden agregar clases enteras de CSS con el comando <code>.addClass()</code>.</p>
                             <pre class="prettyprint linenums">
 $('#demoDiv3').addClass("demoClass");                       </pre>

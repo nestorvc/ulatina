@@ -11,12 +11,13 @@ jQuery(window).load(function(){
 	$('#alert-success').hide();
 	startCodemirror();
 	initHelpers();
+	widgets();
 
 	//Binds
 	$('#btnDemoDiv1').click({editorID: "editorDemoDiv1"}, compilar);
 	$('#btnDemoDiv2').click({editorID: "editorDemoDiv2"}, compilar);
 	$('#btnDemoDiv3').click({editorID: "editorDemoDiv3"}, compilar);
-	$('#btnDemoDiv4').click({editorID: "editorDemoDiv1"}, compilar);
+	$('#btnDemoDiv4').click({editorID: "editorDemoDiv4"}, compilar);
 
 
 	//Utils
@@ -68,6 +69,43 @@ function compilar(e) {
 
 	}
 	
+}
+
+/* ===================
+   WIDGETS
+   =================== */
+
+function widgets(){
+    var arrayLenguajes = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+
+    $('#demoAutocomplete').typeahead({
+      source: arrayLenguajes
+    });
+    
+    $('#demoDatepicker').datepicker();
 }
 
 /* ===================

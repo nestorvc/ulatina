@@ -13,41 +13,9 @@
         <link rel="stylesheet" href="css/prettify.css">
         <link rel="stylesheet" href="css/codemirror.css">
         <link rel="stylesheet" href="css/monokai.css">
+        <link rel="stylesheet" href="css/datepicker.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
-        <!-- UTILS -->
-        <script>
-          $(function() {
-            var arrayLenguajes = [
-              "ActionScript",
-              "AppleScript",
-              "Asp",
-              "BASIC",
-              "C",
-              "C++",
-              "Clojure",
-              "COBOL",
-              "ColdFusion",
-              "Erlang",
-              "Fortran",
-              "Groovy",
-              "Haskell",
-              "Java",
-              "JavaScript",
-              "Lisp",
-              "Perl",
-              "PHP",
-              "Python",
-              "Ruby",
-              "Scala",
-              "Scheme"
-            ];
-            $('#demoDiv2 input').typeahead({
-              source: arrayLenguajes
-            });
-          });
-        </script>
     </head>
     <body>
 
@@ -60,7 +28,6 @@
                            <li><a href="selectors.html">Selectors</a></li>
                             <li><a href="eventos.html">Eventos</a></li>
                             <li><a href="efectos.html">Efectos</a></li> 
-                            <li><a href="ajax.html">AJAX</a></li> 
                             <li><a href="widgets.html">Widgets</a></li>                
                         </ul>                        
                     </div><!--/.nav-collapse -->
@@ -145,7 +112,7 @@
                             <p>Para convertir esto en un contenido de tipo acordión, sólo tenemos que ejecutar ésta línea:</p>
                             <pre class="prettyprint linenums">
 $( "#accordion" ).accordion();</pre>
-                            <p>En el caso en que se estuviera utilizando Bootstrap, el uso es igual de sencillo:</p>
+                            <p>En el caso en que se estuviera utilizando <a href="http://twitter.github.io/bootstrap" target="blank">Bootstrap</a>, el uso es igual de sencillo:</p>
                             <pre class="prettyprint linenums">
 $(".collapse").collapse();</pre>
                             <div id="demoDiv1" class="niceDemo" >
@@ -186,7 +153,8 @@ $(".collapse").collapse();</pre>
                             <h1>Autocomplete</h1>
                         </div>
                         <div>                            
-                            <p>:</p>
+                            <p>El <em>autocomplete</em> permite darle a opciones al usuario para completar el texto que éste está ingresando. Esto ayuda al sistema a disminuir la cantidad de errores humanos ya que trata de guiar al usuario hacia las respuestas correctas.</p>
+                            <p>Para poder autocompletar el texto del usuario, es necesario antes tener un <code>array</code> con las posibles opciones a completar. Por ejemplo, un <code>array</code> de lenguajes de programación:</p>
                             <pre class="prettyprint linenums">
 var arrayLenguajes = [
   "ActionScript",
@@ -214,21 +182,86 @@ var arrayLenguajes = [
 ];</pre>
                             <p>Para lograr que el espacio pueda autocompletar los datos a partir del <code>array</code> llamado <strong>arrayLenguajes</strong> hacemos lo siguiente:</p>
                             <pre class="prettyprint linenums">
-$( "#demoDiv2 input" ).autocomplete({
+$( "#demoAutocomplete" ).autocomplete({
     source: arrayLenguajes
 });</pre>
-                            <p>En el caso en que se estuviera utilizando Bootstrap, el uso es igual de sencillo:</p>
+                            <p>En el caso en que se estuviera utilizando <a href="http://twitter.github.io/bootstrap" target="blank">Bootstrap</a>, el uso es igual de sencillo:</p>
                             <pre class="prettyprint linenums">
-$('#demoDiv2 input').typeahead({
+$('#demoAutocomplete').typeahead({
     source: arrayLenguajes
 });</pre>
                             <div id="demoDiv2" class="niceDemo" >
-                                <input class="typeahead" type="text" data-provide="typeahead">
+                                <input class="typeahead input-xxlarge" id="demoAutocomplete" type="text" data-provide="typeahead" placeholder="Escriba el nombre de un lenguaje">
                             </div>
 
                         </div>
                         <div>                        
-                    </section> <!-- /seccion accordion -->
+                    </section> <!-- /seccion autocomplete -->
+
+                    <section id="datepicker">
+                        <div class="page-header">
+                            <h1>Datepicker</h1>
+                        </div>
+                        <div>                            
+                            <p>Para crear un <em>datepicker</em> hace falta nada más crear un <code>&lt;input&gt;</code> que tenga un id, que luego convertiremos en el componente:</p>
+                            <pre class="prettyprint linenums">
+&lt;input type="text" id="demoDatepicker" /&gt;</pre>
+                            <p>Usando librerías como <a href="http://twitter.github.io/bootstrap" target="blank">Bootstrap</a>, se puede configurar aún más las opciones del <em>datepicker</em> agregándo parámetros dentro del markup del HTML, como se puede ver en el siguiente ejemplo:</p>
+                            <pre class="prettyprint linenums">
+&lt;div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy"&gt;
+  &lt;input class="span2" size="16" type="text" value="12-02-2012"&gt;
+  &lt;span class="add-on"&gt;&lt;i class="icon-th"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+                            <p>Sea cual sea el markup que se haya elegido, ahora simplemente añadimos la línea que va a transformar el <code>&lt;input&gt;</code> en el componente de <em>datepicker</em>:</p>
+                            <pre class="prettyprint linenums">
+$('#demoDatepicker').datepicker();</pre>
+                            <div id="demoDiv3" class="niceDemo" >
+                                <div class="input-append date" id="demoDatepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                    <input class="span2" size="16" type="text" value="12-02-2012">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion datepicker -->
+
+                    <section id="progressbar">
+                        <div class="page-header">
+                            <h1>Progressbar</h1>
+                        </div>
+                        <div>                            
+                            <p>Hacer una barra de progreso es tan simple como esto:</p>
+                            <pre class="prettyprint linenums">
+&lt;div class="progress"&gt;
+  &lt;div class="bar" style="width: 60%;"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                            <p>Y si usamos <a href="http://twitter.github.io/bootstrap" target="blank">Bootstrap</a>, incluso podemos animarla y hacerla más atractiva con estilos pre-hechos:</p>
+                            <pre class="prettyprint linenums">
+&lt;div class="progress progress-striped active"&gt;
+  &lt;div class="bar" style="width: 40%;"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                            <div id="demoDiv4" class="niceDemo" >
+                                <div class="progress">
+                                    <div class="bar" style="width: 60%;"></div>
+                                </div>
+                                <hr>
+                                <div class="progress progress-striped active">
+                                    <div class="bar" style="width: 40%;"></div>
+                                </div>
+                            </div>
+                            <p>Podemos probar la versatilidad de este componente con la siguiente línea de código para que se ejemplifique lo fácil que es usarlo:</p>
+                            <pre class="prettyprint linenums">
+$('.bar').attr({"style":"width: 90%"});</pre>
+
+                            <legend>Editor de código:</legend>
+                            <textarea id="editorDemoDiv4" class="myEditor"></textarea><br>
+                            <button id="btnDemoDiv4" class="btn btn-large btn-warning">Probar</button>
+                            <button class="btn btn-large borrar">Borrar</button>
+
+                        </div>
+                        <div>                        
+                    </section> <!-- /seccion progressbar -->
 
                 </div>    
             </div>            
@@ -242,8 +275,9 @@ $('#demoDiv2 input').typeahead({
         <script src="js/vendor/bootstrap.min.js"></script>    
         <script src="js/vendor/codemirror.js"></script>
         <script src="js/vendor/javascript/javascript.js"></script>
-        <script type="text/javascript" src="js/vendor/prettify.js"></script>     
-        <script src="js/main.js"></script>        
+        <script type="text/javascript" src="js/vendor/prettify.js"></script>  
+        <script src="js/plugins.js"></script>      
+        <script src="js/main.js"></script>      
         <script>
 		  !function ($) {
 		    $(function(){
